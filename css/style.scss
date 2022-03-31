@@ -1,0 +1,2757 @@
+//coded by Nícolas Ribeiro Miranda
+//base project made in the dimension 1366x768
+
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;500;600&family=Ubuntu:wght@400;500;700&display=swap');
+//fonts
+$primaryFont: 'Overpass', sans-serif;
+$secondaryFont: 'Ubuntu', sans-serif;
+
+//colors
+$colorLightRed: hsl(356, 100%, 66%); //(CTA text)
+$colorVeryLightRed: hsl(355, 100%, 74%); //(CTA hover background)
+$colorVeryDarkBlue: hsl(208, 49%, 24%); //(headings)
+
+//Background gradient - body:
+$bgColorVeryDarkGrayBlue: hsl(237, 17%, 21%);
+$bgColorVeryDarkDesaturatedBlue: hsl(237, 23%, 32%);
+
+//flexbox
+@mixin flex($justify_content, $align_items, $flex_direction) {
+    display: flex;
+    justify-content: $justify_content;
+    align-items: $align_items;
+    flex-direction: $flex_direction;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: $primaryFont;
+}
+
+body {
+    min-width: 350px;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #fff;
+}
+
+header {
+    width: 100vw;
+    @include flex(center, center, row);
+    position: absolute;
+    z-index: 20;
+
+    .nav-bar {
+        height: 50px;
+        width: 80vw;
+        @include flex(center, center, row);
+        padding: 0px 40px;
+        position: absolute;
+        top: 50px;
+        
+        article {
+            // border: 1px solid blue;
+            width: 45%;
+            height: 50%;
+            @include flex(center, center, row);
+        }
+
+        
+        img.logo {
+            cursor: pointer;
+            margin: 0px 60px 0px 0px;
+            width: 100px;
+        }
+
+        nav#nav {
+            width: 60vw;
+            .mobile-menu {
+                display: none;
+            }
+            .desktop-menu {
+                width: 60vw;
+                @include flex(space-between, center, row);
+
+                .btns {
+                    height: 50px;
+                    @include flex(center, center, row);
+                    flex-wrap: nowrap;
+                    width: 25%;
+                    .btn-login {
+                        background-color: transparent;
+                        color: #fff;
+                        font-family: $secondaryFont;
+                        font-weight: 700;
+                        border: none;
+                        margin: 0px 5px 0px 0px;
+                        width: 100px;
+                        height: 35px;
+                        border-radius: 20px;
+                        text-align: center;
+                        cursor: pointer;
+                        font-size: 14px;
+                            &:hover {
+                                background: #FF7B86;
+                            }           
+                        }  
+        
+                        .btn-signup {
+                            background-color: transparent;
+                            font-family: $secondaryFont;
+                            background-color: #fff;
+                            width: 100px;
+                            height: 35px;
+                            border-radius: 20px;
+                            border: none;
+                            color: $colorLightRed;
+                            font-weight: 700;
+                            font-size: 14px;
+                            cursor: pointer;
+                            &:hover {
+                                background: #FF7B86;
+                                color: #fff;
+                            }
+                        }  
+                }
+    
+                ul {
+                    list-style: none;
+                    @include flex(center, center, row);
+                    flex-wrap: nowrap;
+    
+                    li#product-nav {
+                        padding: 0px 0px 0px 0px;
+                        @include flex(center, center, column);
+                        margin: 0px 30px 0px 0px;
+                        div {
+                            @include flex(center, center, row);
+                            svg {
+                                margin: 0px 0px 0px 5px;
+                                path{
+                                    stroke: #fff;
+                                }   
+                            } 
+        
+                            p {
+                                font-family: $secondaryFont;
+                                cursor: pointer;
+                                margin: 0px 2px;
+                                color: #fff;
+                                font-weight: 600;
+                                font-size: 1rem;
+                                &:hover {
+                                    border-bottom: 2px solid rgb(228, 228, 228);
+                                    margin-bottom: -2px;
+                                }
+                            }
+                        }
+                        .item {
+                            visibility: hidden;
+                            overflow-y: hidden;
+                            position: relative;
+                            @include flex(center, start, column);
+                            padding: 0px 0px 0px 20px;
+                            border-radius: 5px;
+                            // top: 50px;
+                            height: 0px;
+                            transition: .6s;
+                            width: 12vw;
+                            margin: 0px 0px 0px 0px;
+                            background-color: #EFEFF1;
+    
+                            li {
+                                padding: 0px 0px 0px 0px;
+                                transition: .6s;
+                                font-weight: 500;
+                                color: #314458ef;
+                                font-size: 1rem;
+                                margin: 5px 0px;
+                                cursor: pointer;
+                                &:hover {
+                                    padding: 0px 0px 0px 10px;
+                                    color: #000;
+                                    font-weight: 700;
+                                }
+                            }
+                        }
+    
+                        &.active .item{
+                            visibility: visible;
+                            height: 180px;
+                        }
+                    }
+    
+                    li#company-nav {
+                        padding: 0px 0px 0px 0px;
+                        @include flex(center, center, column);
+                        margin: 0px 30px 0px 0px;
+                        div {
+                            @include flex(center, center, row);
+                            svg {
+                                margin: 0px 0px 0px 5px;
+                                path{
+                                    stroke: #fff;
+                                }   
+                            } 
+        
+                            p {
+                                font-family: $secondaryFont;
+                                cursor: pointer;
+                                margin: 0px 2px;
+                                color: #fff;
+                                font-weight: 600;
+                                font-size: 1rem;
+    
+                                &:hover {
+                                    border-bottom: 2px solid rgb(228, 228, 228);
+                                    margin-bottom: -2px;
+                                }
+                            }
+                        }
+                        .item {
+                            visibility: hidden;
+                            overflow-y: hidden;
+                            position: relative;
+                            @include flex(center, start, column);
+                            padding: 0px 0px 0px 20px;
+                            border-radius: 5px;
+                            // top: 50px;
+                            height: 0px;
+                            transition: .6s;
+                            width: 12vw;
+                            margin: 0px 0px 0px 0px;
+                            background-color: #EFEFF1;
+                            
+                            li {
+                                padding: 0px 0px 0px 0px;
+                                transition: .6s;
+                                font-weight: 500;
+                                color: #314458ef;
+                                font-size: 1rem;
+                                margin: 5px 0px;
+                                cursor: pointer;
+                                &:hover {
+                                    padding: 0px 0px 0px 10px;
+                                    color: #000;
+                                    font-weight: 700;
+                                }
+                            }
+                        }
+    
+                        &.active .item{
+                            visibility: visible;
+                            height: 150px;
+                        }
+                    }
+    
+                    li#connect-nav {
+                        padding: 0px 0px 0px 0px;
+                        @include flex(center, center, column);
+                        margin: 0px 0px 0px 0px;
+                        div {
+                            @include flex(center, center, row);
+                            svg {
+                                margin: 0px 0px 0px 5px;
+                                path{
+                                    stroke: #fff;
+                                }   
+                            } 
+        
+                            p {
+                                font-family: $secondaryFont;
+                                cursor: pointer;
+                                margin: 0px 2px;
+                                color: #fff;
+                                font-weight: 600;
+                                font-size: 1rem;
+                                &:hover {
+                                    border-bottom: 2px solid rgb(228, 228, 228);
+                                    margin-bottom: -2px;
+                                }
+                            }
+                        }
+                        .item {
+                            visibility: hidden;
+                            overflow-y: hidden;
+                            position: relative;
+                            @include flex(center, start, column);
+                            padding: 0px 0px 0px 20px;
+                            border-radius: 5px;
+                            // top: 50px;
+                            height: 0px;
+                            transition: .6s;
+                            width: 12vw;
+                            margin: 0px 0px 0px 0px;
+                            background-color: #EFEFF1;
+    
+                            li {
+                                padding: 0px 0px 0px 0px;
+                                transition: .6s;
+                                font-weight: 500;
+                                color: #314458ef;
+                                font-size: 1rem;
+                                margin: 5px 0px;
+                                cursor: pointer;
+                                &:hover {
+                                    padding: 0px 0px 0px 10px;
+                                    color: #000;
+                                    font-weight: 700;
+                                }
+                            }
+                        }
+    
+                        &.active .item{
+                            visibility: visible;
+                            height: 140px;
+                        }
+                    }
+                }
+
+                
+            }
+           
+        }
+    }
+}
+
+.container {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    .bg {
+        background-image: linear-gradient(to right,#FF8C71 20%, #FF4F5B 80%);
+        width: 100%;
+        height: 70vh;
+        position: absolute;
+        overflow: hidden;
+        border-radius: 0px 0px 0px 100px;
+        z-index: -2;
+        .bg-img {
+            position: absolute;
+            z-index: -1;
+            
+            img {
+                width: 2500px;
+                margin: -1050px 0px 0px -300px;
+
+            }
+        }
+    }
+
+    .home-b {
+        @include flex(center, center, column);
+        width: 100%;
+        height: 70vh;
+        text-align: center;
+
+        h1 {
+            margin: 60px 0px 0px 0px;
+            font-size: 2.5rem;
+            color: #fff;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #fff;
+            font-weight: 300;
+            margin: 10px 0px 40px 0px;
+            letter-spacing: 0.5px;
+        }
+
+        .btn {
+            
+            .btn-start {
+                font-size: 14px;
+                background-color: #FFF;
+                border: none;
+                color: $colorLightRed;
+                padding: 12px 15px;
+                font-weight: 700;
+                border-radius: 20px;
+                text-align: center;
+                font-family: $secondaryFont;
+                margin: 0px 3px 0px 0px;
+                cursor: pointer;
+                &:hover {
+                    background: #FF7B86;
+                    color: #fff;
+                }
+            }
+
+            .btn-learn {
+                font-size: 14px;
+                background-color: transparent;
+                border: 1px solid #fff;
+                color: #fff;
+                padding: 12px 20px;
+                font-weight: 700;
+                border-radius: 20px;
+                text-align: center;
+                font-family: $secondaryFont;
+                cursor: pointer;
+                &:hover {
+                    background-color: #fff;
+                    color: $colorLightRed;
+                }
+            }
+        }
+    }
+}
+
+.about {
+    width: 100%;
+    height: 120vh;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    @include flex(center, center, column);
+    h2{
+        width: 100%;
+        position: absolute;
+        text-align: center;
+        font-size: 1.8rem;
+        color: $colorVeryDarkBlue;
+        top: 50px;
+    }
+    .flex {
+        @include flex(center, center, row);
+        height: 100vh;
+        .txt {
+            width: 50%;
+            margin: 20px 0px 0px 150px;
+
+            .box-1 {
+                // border: 1px solid blue;
+                margin: 0px 0px 60px 0px;
+                padding: 0px 40px 0px 0px;
+                h3 {
+                    color: $colorVeryDarkBlue;
+                    font-size: 1.3rem;
+                    margin: 20px 0px;
+                }
+
+                p {
+                    line-height: 25px;
+                    color: rgb(97, 97, 97);
+                    font-size: 0.8rem;
+                }
+                
+            }
+
+            .box-2 {
+                // border: 1px solid blue;
+                padding: 0px 40px 0px 0px;
+                h3 {
+                    color: $colorVeryDarkBlue;
+                    font-size: 1.3rem;
+                    margin: 20px 0px;
+                }
+
+                p {
+                    line-height: 25px;
+                    font-size: 0.8rem;
+                    color: rgb(97, 97, 97);
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .img {
+            width: 50%;
+            .desktop {
+                display: block;
+                
+            }
+            .mobile {
+                display: none;
+            }
+            img {
+                width: 800px;
+                // margin: 0px 0px 0px 80px;
+            }
+        }
+    }
+
+    
+}
+
+.sec3 {
+    height: 60vh;
+    border-radius: 0px 50px 0px 50px;
+    background-color: $bgColorVeryDarkGrayBlue;
+    z-index: -1;
+    position: relative;
+    @include flex(space-around, center, row);
+    .bg {
+        width: 100%;
+        height: 50vh;
+        z-index: -1;
+        left: -15%;
+        position: absolute;
+        overflow: hidden;
+        bottom: 62px;
+        .bg-img {
+            bottom: -100px;
+            left: 0px;
+            position: absolute;
+            img {
+                width: 800px;
+                
+            }
+        }
+    }
+    .content {
+        width: 90%;
+        @include flex(space-evenly, center, row);
+    }
+    .img {
+        margin: 0px 80px 0px 0px;
+        img {
+            margin: 30px 0px 0px 0px;
+        }
+    }
+
+    .txt {
+        width: 90%;
+        margin: 0px 50px 0px 0px;
+        h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin: 0px 0px 20px 0px;
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.719);
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 25px;
+        }
+    }
+}
+
+.sec4 {
+    // border: 2px solid blue;
+    width: 100%;
+    height: 120vh;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    @include flex(center, center, row);
+
+    .content {
+        // border: 10px solid gray;
+        @include flex(center, center, row);
+        height: 120vh;
+
+        .txt {
+            // border: 3px solid red;
+            width: 40%;
+            margin: 0px 100px 0px 0px;
+            .box-1 {
+                // border: 1px solid blue;
+                padding: 0px 40px 0px 0px;
+                h3 {
+                    color: $colorVeryDarkBlue;
+                    font-size: 1.3rem;
+                    margin: 20px 0px;
+                }
+
+                p {
+                    line-height: 25px;
+                    color: rgb(97, 97, 97);
+                    font-size: 0.8rem;
+                }
+                
+            }
+
+            .box-2 {
+                // border: 1px solid blue;
+                padding: 0px 40px 0px 0px;
+                h3 {
+                    color: $colorVeryDarkBlue;
+                    font-size: 1.3rem;
+                    margin: 20px 0px;
+                }
+
+                p {
+                    line-height: 25px;
+                    font-size: 0.9rem;
+                    color: rgb(97, 97, 97);
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+
+    .img {
+        width: 50%;
+        .desktop {
+            display: block;
+        }
+        .mobile {
+            display: none;
+        }
+        img {
+            width: 700px;
+            margin: 0px 0px 0px -200px;
+            // border: 1px solid red;
+        }
+    }
+}
+
+footer {
+    width: 100%;
+    height: 50vh;
+    border-radius: 0px 50px 0px 0px;
+    background-color: #24242C;
+    article {
+        cursor: pointer;
+        width: 100px;
+
+    }
+
+    section {
+        padding: 60px 0px 0px 0px;
+        @include flex(space-evenly, start, row);
+        width: 100%;
+        // height: 50vh;
+        margin: 0 auto;
+    }
+
+    nav {
+        font-family: $secondaryFont;
+
+        h5 {
+            color: #fff;
+            font-weight: 500;
+            font-size: 1rem;
+            margin: 0px 0px 25px 0px;
+        }
+        ul {
+            list-style: none;
+
+            li {
+                margin: 10px 0px;
+                a {
+                    text-decoration: none;
+                    font-weight: 400;
+                    font-size: 0.9rem;
+                    color: rgba(255, 255, 255, 0.705);
+                    
+                    &:hover {
+                        border-bottom: 2px solid rgba(255, 255, 255, 0.705);
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//maxwidth 1366px
+@media (min-width: 1280px) and (max-width: 1366px) {
+    header {
+        .nav-bar {
+            img.logo {
+                width: 100px;
+            }
+
+            a {
+                font-size: 1rem;
+            }
+
+            .btns {
+                .btn-login {
+                    font-size: 14px;
+                    width: 100px;
+                    border-radius: 20px;
+                    height: 35px; 
+                }
+
+                .btn-signup {
+                    font-size: 14px;
+                    width: 100px;
+                    border-radius: 20px;
+                    height: 35px;
+                }
+            }
+
+            
+            nav#nav {
+                .desktop-menu {
+                    ul {
+                        li#product-nav {
+                            .item {
+                                top: 50px;
+                                position: absolute;   
+                            }
+                        }
+                        li#company-nav {
+                            .item {
+                                top: 50px;
+                                position: absolute;
+                            }
+                            
+                        }
+                        li#connect-nav {
+                            .item {
+                                top: 50px;
+                                position: absolute;
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+
+    .container {
+        .bg {
+            .bg-img {
+                img {
+                    width: 2500px;
+                    margin: -1050px 0px 0px -300px;
+                }
+            }
+        }
+
+        .home-b {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                .btn-start {
+                    padding: 12px 15px;
+                    border-radius: 20px;
+                }
+
+                .btn-learn {
+                    padding: 12px 20px;
+                    border-radius: 20px;
+                }
+            }
+        }
+    }
+
+    .about {
+        h2 {
+            font-size: 1.8rem;
+            top: 50px;
+        }
+
+        .flex {
+            .txt {
+                .box-1 {
+                    h3 {
+                        font-size: 1.3rem;
+                    }
+                    p {
+                        font-size: 0.8rem;
+                        line-height: 25px;
+                    }
+                }
+                .box-2 {
+                    h3 {
+                        font-size: 1.3rem;
+                    }
+                    p {
+                        font-size: 0.8rem;
+                        line-height: 25px;
+                    }
+                }      
+            }
+        }
+
+        .img {
+            img {
+                width: 800px;
+                margin: 0px 0px 0px 80px;
+            }
+        }
+    }
+
+    .sec3 {
+        .bg {
+            left: -15%;
+            
+            .bg-img {
+                bottom: -100px;
+                img {
+                    width: 800px;
+                    
+                }
+            }
+        }
+        .img {
+            margin: 0px 80px 0px 0px;
+            img {
+                width: 450px;
+            }
+        }
+        .txt {
+            width: 40%;
+            margin: 0px 50px 0px 0px;
+            h2 {
+                font-size: 2rem;
+                margin: 0px 0px 20px 0px;
+            }
+    
+            p {
+                font-size: 0.9rem;
+                line-height: 25px;
+            }
+        }
+    }
+
+    .sec4 {
+        .content {
+            .txt {
+                .box-1 {
+                    margin: 50px 0px;
+                    h3 {
+                        font-size: 1.3rem;
+                    }
+                    p {
+                        font-size: 0.9rem;
+                        line-height: 25px;
+                    }
+                }
+                .box-2 {
+                    margin: 0px 0px 50px 0px;
+                    h3 {
+                        font-size:1.3rem;
+                    }
+                    p {
+                        font-size: 0.9rem;
+                        line-height: 25px;
+                    }
+                }      
+            }
+        }
+        .img {
+            img {
+                width: 800px;
+                margin: 0px 0px 0px -300px;
+            }
+        }
+    }
+
+    footer {
+        width: 100%;
+        height: 50vh;
+        border-radius: 0px 50px 0px 0px;
+        background-color: #24242C;
+        
+        article {
+            cursor: pointer;
+            width: 100px;
+
+        }
+
+        section {
+            padding: 60px 0px 0px 0px;
+            @include flex(space-evenly, start, row);
+            width: 100%;
+            // height: 50vh;
+            margin: 0 auto;
+        }
+
+        nav {
+            font-family: $secondaryFont;
+
+            h5 {
+                color: #fff;
+                font-weight: 500;
+                font-size: 1rem;
+                margin: 0px 0px 25px 0px;
+            }
+            ul {
+                list-style: none;
+
+                li {
+                    margin: 10px 0px;
+                    a {
+                        text-decoration: none;
+                        font-weight: 400;
+                        font-size: 0.9rem;
+                        color: rgba(255, 255, 255, 0.705);
+                        
+                        &:hover {
+                            border-bottom: 2px solid rgba(255, 255, 255, 0.705);
+                            margin-bottom: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }  
+}
+//width 1600px max 1768px
+@media (min-width: 1600px) and (max-width: 1768px) {
+    header {
+        .nav-bar {
+            nav#nav {
+                .desktop-menu {
+                    ul {
+                        li#product-nav {
+                            .item {
+                                top: 50px;
+                                position: absolute;
+                                width: 10vw;
+                            }
+                        }
+                        li#company-nav {
+                            .item {
+                                top: 50px;
+                                position: absolute;
+                                width: 10vw;
+                            }
+                            
+                        }
+                        li#connect-nav {
+                            .item {
+                                top: 50px;
+                                position: absolute;
+                                width: 10vw;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .about {
+        h2 {
+            font-size: 1.8rem;
+            top: 100px;
+        }
+
+        .flex {
+            .txt {
+                .box-1 {
+                    h3 {
+                        font-size: 1.8rem;
+                    }
+                    p {
+                        font-size: 1.1rem;
+                        line-height: 35px;
+                    }
+                }
+                .box-2 {
+                    h3 {
+                        font-size: 1.8rem;
+                    }
+                    p {
+                        font-size:1.1rem;
+                        line-height: 35px;
+                    }
+                }      
+            }
+        }
+
+        .img {
+            img {
+                width: 1000px;
+                margin: 0px 0px 0px 80px;
+            }
+        }
+    }
+
+    .sec3 {
+        .bg {
+            bottom: 105px;
+            .bg-img {
+                img {
+                    width: 1050px;
+                    
+                }
+            }
+        }
+        .img {
+            img {
+                width: 600px;
+            }
+        }
+        .txt {
+            h2 {
+                font-size: 2.3rem;
+            }
+    
+            p {
+                font-size: 1rem;
+                line-height: 30px;
+            }
+        }
+    }
+
+    .sec4 {
+        .content {
+            .txt {
+                .box-1 {
+                    h3 {
+                        font-size: 1.8rem;
+                    }
+                    p {
+                        font-size: 1.1rem;
+                        line-height: 35px;
+                    }
+                }
+                .box-2 {
+                    h3 {
+                        font-size: 1.8rem;
+                    }
+                    p {
+                        font-size: 1.1rem;
+                        line-height: 35px;
+                    }
+                }      
+            }
+        }
+        .img {
+            img {
+                width: 1100px;
+                margin: 0px 0px 0px -350px;
+            }
+        }
+    }
+
+    footer {
+        height: 40vh;
+        section {
+            padding: 60px 0px 0px 0px;
+            @include flex(space-evenly, start, row);
+            width: 100%;
+            height: 40vh;
+            margin: 0 auto;
+        }
+
+        nav {
+            h5 {
+                font-size: 1.3rem;
+            }
+            ul {
+                li {
+                    margin: 15px 0px;
+                    a {
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//media dimension 1920x1080px
+@media (width: 1920px) {
+    header {
+        .nav-bar {
+            img.logo {
+                width: 200px;
+            }
+
+            a {
+                font-size: 1rem;
+            }
+
+            .btns {
+                .btn-login {
+                    font-size: 14px;
+                    width: 100px;
+                    border-radius: 20px;
+                    height: 35px; 
+                }
+
+                .btn-signup {
+                    font-size: 14px;
+                    width: 100px;
+                    border-radius: 20px;
+                    height: 35px; 
+                }
+            }
+
+            nav#nav {
+                .desktop-menu {
+                    ul {
+                        li#product-nav {
+                            .item {
+                                top: 50px;
+                                position: absolute;
+                                width: 8vw;   
+                            }
+                        }
+                        li#company-nav {
+                            .item {
+                                top: 50px;
+                                position: absolute;
+                                width: 8vw;
+                            }
+                            
+                        }
+                        li#connect-nav {
+                            .item {
+                                top: 50px;
+                                position: absolute;
+                                width: 8vw;
+                            
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .container {
+        .bg {
+            .bg-img {
+                img {
+                    width: 3500px;
+                    margin: -1300px 0px 0px -300px;
+                }
+            }
+        }
+        .home-b {
+            h1 {
+                font-size: 3.5rem;
+            }
+
+            p {
+                font-size: 1.5rem;
+            }
+
+            .btn {
+                .btn-start {
+                    font-size: 20px;
+                    padding: 15px 15px;
+                    border-radius: 30px;
+                }
+
+                .btn-learn {
+                    font-size: 20px;
+                    padding: 15px 25px;
+                    border-radius: 30px;
+                }
+            }
+        }
+    }
+    
+    .about {
+        h2 {
+            font-size: 2.5rem;
+            top: 150px;
+        }
+
+        .flex {
+            .txt {
+                .box-1 {
+                    h3 {
+                        font-size: 2.3rem;
+                    }
+                    p {
+                        font-size: 1.5rem;
+                        line-height: 40px;
+                    }
+                }
+                .box-2 {
+                    h3 {
+                        font-size: 2.3rem;
+                    }
+                    p {
+                        font-size: 1.5rem;
+                        line-height: 40px;
+                    }
+                }      
+            }
+        }
+
+        .img {
+            img {
+                width: 200px;
+                margin: 0px 0px 0px 100px;
+            }
+        }
+    }
+
+    .sec3 {
+        .bg {
+            left: -15%;
+            bottom: 107px;
+            .bg-img {
+                bottom: -150px;
+                img {
+                    width: 1300px;
+                    
+                }
+            }
+        }
+        .img {
+            margin: 30px 120px 0px 0px;
+            img {
+                width: 750px;
+                
+            }
+        }
+        .txt {
+            width: 40%;
+            margin: 0px 100px 0px 0px;
+            h2 {
+                font-size: 2.5rem;
+                margin: 20px 0px 20px 0px;
+            }
+    
+            p {
+                font-size: 1.4rem;
+                font-weight: 300;
+                line-height: 40px;
+            }
+        }
+    }
+
+    .sec4 {
+        .content {
+            .txt {
+                margin: 0px 200px 0px 0px;
+                .box-1 {
+                    margin: 100px 0px;
+                    h3 {
+                        font-size: 2.3rem;
+                    }
+                    p {
+                        font-size: 1.5rem;
+                        line-height: 40px;
+                    }
+                }
+                .box-2 {
+                    margin: 0px 0px 100px 0px;
+                    h3 {
+                        font-size: 2.3rem;
+                    }
+                    p {
+                        font-size: 1.5rem;
+                        line-height: 40px;
+                    }
+                }      
+            }
+        }
+        .img {
+            img {
+                width: 1300px;
+                margin: 0px 0px 0px -420px;
+            }
+        }
+    }
+
+    footer {
+        height: 40vh;
+
+        section {
+            height: 40vh;
+            padding: 60px 0px 0px 0px;
+        }
+
+        article {
+            width: 120px;
+        }
+
+        nav {
+            h5 {
+                font-size: 1.5rem;
+            }
+            ul {
+                li{
+                    margin: 20px 0px;
+                    a {
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+            
+        }
+    }
+}
+
+//SMARTPHONES
+
+@media (min-width: 320px) and (max-width: 490px) {
+    header {
+        .nav-bar {
+            width: 80vw;
+            nav#nav {
+                .mobile-menu {
+                    border: none;
+                    display: flex;
+                    padding: .5rem 1rem;
+                    font-size: 1rem;
+                    background: none;
+                    cursor: pointer;
+                    gap: .5rem;
+
+                    .hamburger {
+                        border-top: 3px solid;
+                        width: 30px;
+                        display: block;
+                        color: #fff;
+
+                        &::after, &::before {
+                            content: '';
+                            transition: .6s;
+                            display: block;
+                            width: 30px;
+                            height: 3px;
+                            background: #fff; 
+                            margin-top: 5px;
+                            position: relative;
+                        }
+                    }
+                }
+
+                &.active .hamburger {
+                    border-top-color: transparent;
+
+                    &::before {
+                        transform: rotate(135deg);
+                    }
+
+                    &::after {
+                        transform: rotate(-135deg);
+                        top: -7px;
+                    }
+                }
+
+                .desktop-menu {
+                    @include flex(flex-start, center, column);
+                    border-radius: 5px;
+                    position: absolute;
+                    width: 100%;
+                    height: 0vh;
+                    top: 50px;
+                    right: 0px;
+                    background-color: #fff;
+                    transition: .6s;
+                    overflow-y: hidden;
+                    z-index: 1000;
+                    visibility: hidden;
+                    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.349);
+                    ul {
+                        @include flex(flex-start, center, column);
+                        width: 100%;
+                        height: 80%;
+
+                        li#product-nav {  
+                            padding: 15px 0px 0px 0px;
+                            @include flex(flex-start, center, column);
+                            margin: 5px 0px;
+                            div {
+                                @include flex(center, center, row);
+                                svg {
+                                    margin: 0px 0px 0px 5px;
+                                    path{
+                                        stroke: $colorLightRed;
+                                    }   
+                                } 
+            
+                                p {
+                                    font-family: $primaryFont;
+                                    margin: 05px 2px;
+                                    color: #314458;
+                                    font-weight: 600;
+                                    font-size: 1.2rem;
+                                }
+                            }
+                            
+                            .item {
+                                visibility: hidden;
+                                overflow-y: hidden;
+                                @include flex(center, center, column);
+                                border-radius: 5px;
+                                padding: 0px 0px 0px 0px;
+                                height: 0px;
+                                transition: .6s;
+                                width: 65vw;
+                                margin: 5px 0px 0px 0px;
+                                background-color: #EFEFF1;
+
+
+                                li {
+                                    font-weight: 700;
+                                    font-size: 1rem;
+                                    margin: 5px 0px;
+                                    color: #314458ef;
+                                }
+                            }
+
+                            &.active p {
+                                color: #314458c5;
+                            }
+
+                            &.active .item{
+                                visibility: visible;
+                                height: 180px;
+                            }
+                        }
+
+                        li#company-nav {
+                            @include flex(flex-start, center, column);
+                            margin: 5px 0px;
+                            div {
+                                @include flex(center, center, row);
+                                svg {
+                                    margin: 0px 0px 0px 5px;
+                                    path{
+                                        stroke: $colorLightRed;
+                                    }   
+                                } 
+            
+                                p {
+                                    font-family: $primaryFont;
+                                    margin: 05px 2px;
+                                    color: #314458;
+                                    font-weight: 600;
+                                    font-size: 1.2rem;
+                                }
+                            }
+
+                            .item {
+                                visibility: hidden;
+                                overflow-y: hidden;
+                                @include flex(center, center, column);
+                                border-radius: 5px;
+                                height: 0px;
+                                transition: .6s;
+                                padding: 0px 0px 0px 0px;
+                                width: 65vw;
+                                margin: 5px 0px 0px 0px;
+                                background-color: #EFEFF1;
+
+                                li {
+                                    font-weight: 700;
+                                    font-size: 1rem;
+                                    margin: 5px 0px;
+                                    color: #314458ef;
+                                }
+                            }
+
+                            &.active p {
+                                color: #314458c5;
+                            }
+
+                            &.active .item{
+                                visibility: visible;
+                                height: 150px;
+                            }
+                        } 
+
+                        li#connect-nav {
+                            @include flex(flex-start, center, column);
+                            margin: 5px 0px;
+                            div {
+                                @include flex(center, center, row);
+                                svg {
+                                    margin: 0px 0px 0px 5px;
+                                    path{
+                                        stroke: $colorLightRed;
+                                    }   
+                                } 
+            
+                                p {
+                                    font-family: $primaryFont;
+                                    margin: 5px 2px;
+                                    color: #314458;
+                                    font-weight: 600;
+                                    font-size: 1.2rem;
+                                }
+                            }
+
+                            .item {
+                                visibility: visible;
+                                overflow-y: hidden;
+                                @include flex(center, center, column);
+                                border-radius: 5px;
+                                padding: 0px 0px 0px 0px;
+                                height: 0px;
+                                transition: .6s;
+                                width: 65vw;
+                                margin: 5px 0px 10px 0px;
+                                background-color: #EFEFF1;
+
+                                li {
+                                    font-weight: 700;
+                                    font-size: 1rem;
+                                    margin: 7px 0px;
+                                    color: #314458ef;
+                                }
+                            }
+
+                            &.active p {
+                                color: #314458c5;
+                            }
+
+                            &.active .item{
+                                visibility: visible;
+                                height: 140px;
+                            }
+                        } 
+
+                    }
+
+                    .btns {
+                        border-top: 1px solid rgba(139, 139, 139, 0.219);
+                        width: 100%;
+                        height: 40%;
+                        position: relative;
+                        bottom: 10px;
+                        @include flex(center, center, column);
+                        .btn-login {
+                            font-size: 1.2rem;
+                            margin: 0px 0px 15px 0px;
+                            color: #314458;
+                            font-family: $primaryFont;
+                            font-weight: 600;
+                        }
+                        .btn-signup {
+                            color: #fff;
+                            font-size: 1.2rem;
+                            border-radius: 30px;
+                            width: 140px;
+                            height: 50px;
+                            background: linear-gradient(to right, #FF8C71 20%, #FF4F5B 80%);
+                        }
+                    }
+                }
+
+                &.active .desktop-menu{
+                    @include flex(flex-start, center, column);
+                    overflow-y: hidden;
+                    visibility: visible;
+                    height: 60vh;
+                }
+            }
+
+            img.logo {
+                margin: 0px 120px 0px 0px;
+            }
+        }
+    }
+
+    .container {
+        .bg {
+            .bg-img {          
+                img {
+                    width: 1000px;
+                    margin: -200px 0px 0px -100px;
+                }
+            }
+        }
+        .home-b {
+            padding: 0px 25px;
+
+            h1 {
+                font-size: 2rem;
+                font-weight: 400;
+            }
+
+            p {
+                font-size: 1.2rem;
+                font-weight: 300;
+            }
+
+            .btn {
+                .btn-start {
+                    font-size: 15px;
+                    padding: 15px 15px;
+                    border-radius: 30px;
+                }
+
+                .btn-learn {
+                    font-size: 15px;
+                    padding: 15px 25px;
+                    border-radius: 30px;
+                }
+            }
+        }
+    }
+
+    .about {
+        height: 140vh;
+        margin: 50px 0px 150px 0px;
+        h2 {
+            top: 0px;
+            font-size: 1.6rem;
+        }
+
+        .flex {
+            height: 120vh;
+            @include flex(center, center, column);
+            .txt {
+                @include flex(center, center, column);
+                width: 100vw;
+                order: 2;
+                margin: 0px 0px 0px 0px;
+                .box-1 {
+                    padding: 0px 40px 0px 40px;
+                    h3 {
+                        text-align: center;
+                        font-size: 1.6rem;
+                    }
+                    p {
+                        text-align: center;
+                        font-size: 1rem;
+                        line-height: 25px;
+                    }
+                }
+                .box-2 {
+                    padding: 0px 40px 0px 40px;
+                    h3 {
+                        text-align: center;
+                        font-size: 1.6rem;
+                    }
+                    p {
+                        text-align: center;
+                        font-size: 1rem;
+                        line-height: 25px;
+                    }
+                }      
+            }
+
+            .img {
+                margin: 0px 0px 0px 0px;
+                @include flex(center, center, column);
+                width: 100vw;
+                height: 100%;
+                order: 1;
+                .desktop {
+                    display: none;
+                }
+                .mobile {
+                    display: block;
+                }
+                img {
+                    width: 350px;
+                    margin: 0px 0px 0px 0px;
+                }
+            }
+        }   
+    }
+
+    .sec3 {
+        height: 80vh;
+        @include flex(center, center, column);
+        .bg {
+            left: 0%;
+            border-radius: 50px;
+            bottom: 37%;
+            .bg-img {
+                bottom: 50px;
+                left: -80px;
+                img {
+                    width: 500px;
+                    
+                }
+            }
+        }
+        .content {
+            @include flex(center, center, column)
+        }
+        .img {
+            margin: 50px 0px 0px 0px;
+            img {
+                width: 350px;
+            }
+        }
+        .txt {
+            width: 100%;
+            margin: 0px 0px 350px 0px;
+            padding: 0px 15px;
+            h2 {
+                text-align: center;
+                font-size: 1.8rem;
+                margin: 20px 0px 20px 0px;
+            }
+    
+            p {
+                text-align: center;
+                font-size:1rem;
+                font-weight: 300;
+                line-height: 25px;
+            }
+        }
+    }
+
+    .sec4 {
+        width: 100vw;
+        height: 130vh;
+        margin: 0px 0px 0px 0px;
+        .content {
+            @include flex(center, center, column);
+            .txt {
+                width: 100%;
+                margin: 0px 0px 0px 0px;
+                padding: 0px 30px;
+                .box-1 {
+                    text-align: center;
+                    margin: 0px 0px;
+                    padding: 0px 0px 0px 0px;
+                    h3 {
+                        font-size: 1.5rem;
+                    }
+                    p {
+                        font-size: 1rem;
+                        line-height: 25px;
+                    }
+                }
+                .box-2 {
+                    text-align: center;
+                    margin: 50px 0px 50px 0px;
+                    padding: 0px 0px 0px 0px;
+                    h3 {
+                        font-size: 1.5rem;
+                    }
+                    p {
+                        font-size: 1rem;
+                        line-height: 25px;
+                    }
+                }      
+            }
+        }
+        .img {
+            width: 100vw;
+            height: 100%;
+            @include flex(center, center, column);
+            .desktop {
+                display: none;
+            }
+            .mobile {
+                display: block;
+                width: 450px;
+                margin: 0px 0px 0px 0px;
+            }
+        }
+    }
+
+    footer {
+        height: 90vh;
+        @include flex(center, center, column);
+        section {
+            @include flex(center, center, column);
+            height: 80vh;
+            padding: 0px 0px 0px 0px;
+        }
+
+        article {
+            width: 120px;
+            @include flex(center, center, column);
+            margin: 0px 0px 0px 0px;
+        }
+
+        nav {
+            h5 {
+                text-align: center;
+                font-size: 1rem;
+                margin: 30px 0px 30px 0px;
+            }
+            ul {
+                li{
+                    text-align: center;
+
+                    margin: 6px 0px;
+                    a {
+                        font-size: 1rem;
+                    }
+                }
+            }
+            
+        }
+    }
+}
+
+//TABLETS width 760px - 1024px and height 1366px ~ 1368px
+@media (min-width: 760px) and (max-width: 1024px) {
+    header {
+        .nav-bar {
+            width: 80vw;
+            nav#nav {
+                .mobile-menu {
+                    border: none;
+                    display: flex;
+                    padding: .5rem 1rem;
+                    font-size: 1rem;
+                    background: none;
+                    cursor: pointer;
+                    gap: .5rem;
+
+                    .hamburger {
+                        border-top: 3px solid;
+                        width: 30px;
+                        display: block;
+                        color: #fff;
+
+                        &::after, &::before {
+                            content: '';
+                            transition: .6s;
+                            display: block;
+                            width: 30px;
+                            height: 3px;
+                            background: #fff; 
+                            margin-top: 5px;
+                            position: relative;
+                        }
+                    }
+                }
+
+                &.active .hamburger {
+                    border-top-color: transparent;
+
+                    &::before {
+                        transform: rotate(135deg);
+                    }
+
+                    &::after {
+                        transform: rotate(-135deg);
+                        top: -7px;
+                    }
+                }
+
+                .desktop-menu {
+                    @include flex(flex-start, center, column);
+                    border-radius: 5px;
+                    position: absolute;
+                    width: 100%;
+                    height: 0vh;
+                    top: 50px;
+                    right: 0px;
+                    background-color: #fff;
+                    transition: .6s;
+                    overflow-y: hidden;
+                    z-index: 1000;
+                    visibility: hidden;
+                    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.349);
+                    ul {
+                        @include flex(flex-start, center, column);
+                        width: 100%;
+                        height: 80%;
+
+                        li#product-nav {  
+                            padding: 15px 0px 0px 0px;
+                            @include flex(flex-start, center, column);
+                            margin: 5px 0px;
+                            div {
+                                @include flex(center, center, row);
+                                svg {
+                                    margin: 0px 0px 0px 5px;
+                                    path{
+                                        stroke: $colorLightRed;
+                                    }   
+                                } 
+            
+                                p {
+                                    font-family: $primaryFont;
+                                    margin: 05px 2px;
+                                    color: #314458;
+                                    font-weight: 600;
+                                    font-size: 1.2rem;
+                                }
+                            }
+                            
+                            .item {
+                                visibility: hidden;
+                                overflow-y: hidden;
+                                @include flex(center, center, column);
+                                border-radius: 5px;
+                                height: 0px;
+                                transition: .6s;
+                                width: 65vw;
+                                margin: 5px 0px 0px 0px;
+                                background-color: #EFEFF1;
+
+                                li {
+                                    font-weight: 700;
+                                    font-size: 1rem;
+                                    margin: 5px 0px;
+                                    color: #314458ef;
+                                }
+                            }
+
+                            &.active p {
+                                color: #314458c5;
+                            }
+
+                            &.active .item{
+                                visibility: visible;
+                                height: 180px;
+                            }
+                        }
+
+                        li#company-nav {
+                            @include flex(flex-start, center, column);
+                            margin: 5px 0px;
+                            div {
+                                @include flex(center, center, row);
+                                svg {
+                                    margin: 0px 0px 0px 5px;
+                                    path{
+                                        stroke: $colorLightRed;
+                                    }   
+                                } 
+            
+                                p {
+                                    font-family: $primaryFont;
+                                    margin: 05px 2px;
+                                    color: #314458;
+                                    font-weight: 600;
+                                    font-size: 1.2rem;
+                                }
+                            }
+
+                            .item {
+                                visibility: hidden;
+                                overflow-y: hidden;
+                                @include flex(center, center, column);
+                                border-radius: 5px;
+                                height: 0px;
+                                transition: .6s;
+                                width: 65vw;
+                                margin: 5px 0px 0px 0px;
+                                background-color: #EFEFF1;
+
+                                li {
+                                    font-weight: 700;
+                                    font-size: 1rem;
+                                    margin: 5px 0px;
+                                    color: #314458ef;
+                                }
+                            }
+
+                            &.active p {
+                                color: #314458c5;
+                            }
+
+                            &.active .item{
+                                visibility: visible;
+                                height: 150px;
+                            }
+                        } 
+
+                        li#connect-nav {
+                            @include flex(flex-start, center, column);
+                            margin: 5px 0px;
+                            div {
+                                @include flex(center, center, row);
+                                svg {
+                                    margin: 0px 0px 0px 5px;
+                                    path{
+                                        stroke: $colorLightRed;
+                                    }   
+                                } 
+            
+                                p {
+                                    font-family: $primaryFont;
+                                    margin: 5px 2px;
+                                    color: #314458;
+                                    font-weight: 600;
+                                    font-size: 1.2rem;
+                                }
+                            }
+
+                            .item {
+                                visibility: visible;
+                                overflow-y: hidden;
+                                @include flex(center, center, column);
+                                border-radius: 5px;
+                                height: 0px;
+                                transition: .6s;
+                                width: 65vw;
+                                margin: 5px 0px 10px 0px;
+                                background-color: #EFEFF1;
+
+                                li {
+                                    font-weight: 700;
+                                    font-size: 1rem;
+                                    margin: 7px 0px;
+                                    color: #314458ef;
+                                }
+                            }
+
+                            &.active p {
+                                color: #314458c5;
+                            }
+
+                            &.active .item{
+                                visibility: visible;
+                                height: 140px;
+                            }
+                        } 
+
+                    }
+
+                    .btns {
+                        border-top: 1px solid rgba(139, 139, 139, 0.219);
+                        width: 100%;
+                        height: 40%;
+                        position: relative;
+                        bottom: 10px;
+                        @include flex(center, center, column);
+                        .btn-login {
+                            font-size: 1.2rem;
+                            margin: 0px 0px 15px 0px;
+                            color: #314458;
+                            font-family: $primaryFont;
+                            font-weight: 600;
+                        }
+                        .btn-signup {
+                            color: #fff;
+                            font-size: 1.2rem;
+                            border-radius: 30px;
+                            width: 140px;
+                            height: 50px;
+                            background: linear-gradient(to right, #FF8C71 20%, #FF4F5B 80%);
+                        }
+                    }
+                }
+
+                &.active .desktop-menu{
+                    @include flex(flex-start, center, column);
+                    overflow-y: hidden;
+                    visibility: visible;
+                    height: 60vh;
+                }
+            }
+
+            img.logo {
+                width: 120px;
+                margin: 0px 360px 0px 0px;
+            }
+        } 
+    }
+
+    .container {
+        .bg {
+            .bg-img {          
+                img {
+                    width: 2500px;
+                    margin: -600px 0px 0px -300px;
+                }
+            }
+        }
+        .home-b {
+            padding: 0px 25px;
+
+            h1 {
+                font-size: 3rem;
+                font-weight: 400;
+            }
+
+            p {
+                font-size: 1.5rem;
+                font-weight: 300;
+            }
+
+            .btn {
+                .btn-start {
+                    font-size: 20px;
+                    padding: 25px 25px;
+                    border-radius: 50px;
+                }
+
+                .btn-learn {
+                    font-size: 20px;
+                    padding: 25px 35px;
+                    border-radius: 50px;
+                }
+            }
+        }
+    }
+
+    .about {
+        height: 140vh;
+        margin: 20px 0px 150px 0px;
+        h2 {
+            top: 100px;
+            font-size: 2.5rem;
+        }
+
+        .flex {
+            
+            height: 120vh;
+            @include flex(center, center, column);
+            .txt {
+                @include flex(center, center, column);
+                width: 100vw;
+                order: 2;
+                margin: 0px 0px 0px 0px;
+                .box-1 {
+                    padding: 0px 100px 0px 100px;
+                    h3 {
+                        text-align: center;
+                        font-size: 2.5rem;
+                    }
+                    p {
+                        text-align: center;
+                        font-size: 1.5rem;
+                        line-height: 45px;
+                    }
+                }
+                .box-2 {
+                    padding: 0px 100px 0px 100px;
+                    h3 {
+                        text-align: center;
+                        font-size: 2.5rem;
+                    }
+                    p {
+                        text-align: center;
+                        font-size: 1.5rem;
+                        line-height: 45px;
+                    }
+                }      
+            }
+
+            .img {
+                margin: 100px 0px 120px 0px;
+                @include flex(flex-start, center, column);
+                width: 100vw;
+                height: 40%;
+                order: 1;
+                .desktop {
+                    display: none;
+                }
+                .mobile {
+                    display: block;
+                }
+                img {
+                    width: 800px;
+                    margin: 0px 0px 0px 0px;
+                }
+            }
+        }   
+    }
+
+    .sec3 {
+        height: 80vh;
+        @include flex(center, center, column);
+        .bg {
+            left: 0%;
+            border-radius: 50px;
+            bottom: 37%;
+            .bg-img {
+                bottom: 50px;
+                left: -350px;
+                img {
+                    width: 1500px;
+                }
+            }
+        }
+        .content {
+            @include flex(center, center, column)
+        }
+        .img {
+
+            margin: 50px 0px 0px 0px;
+            img {
+                width: 700px;
+            }
+        }
+        .txt {
+            width: 100%;
+            margin: 0px 0px 450px 0px;
+            padding: 0px 50px;
+            h2 {
+                text-align: center;
+                font-size: 2.5rem;
+                margin: 20px 0px 20px 0px;
+            }
+    
+            p {
+                text-align: center;
+                font-size: 1.5rem;
+                font-weight: 300;
+                line-height: 45px;
+            }
+        }
+    }
+
+    .sec4 {
+        width: 100vw;
+        height: 130vh;
+        margin: 0px 0px 100px 0px;
+        .content {
+            @include flex(center, center, column);
+            .txt {
+                width: 100%;
+                margin: 0px 0px 0px 0px;
+                padding: 0px 30px;
+                .box-1 {
+                    text-align: center;
+                    margin: 0px 0px;
+                    padding: 0px 0px 0px 0px;
+                    h3 {
+                        font-size: 2.5rem;
+                    }
+                    p {
+                        font-size: 1.5rem;
+                        line-height: 45px;
+                    }
+                }
+                .box-2 {
+                    text-align: center;
+                    margin: 100px 0px 50px 0px;
+                    padding: 0px 0px 0px 0px;
+                    h3 {
+                        font-size: 2.5rem;
+                    }
+                    p {
+                        font-size: 1.5rem;
+                        line-height: 45px;
+                    }
+                }      
+            }
+        }
+        .img {
+            width: 100vw;
+            height: 100%;
+            @include flex(center, center, column);
+            .desktop {
+                display: none;
+            }
+            .mobile {
+                display: block;
+                width: 1100px;
+                margin: 0px 0px 0px 0px;
+            }
+        }
+    }
+
+    footer {
+        height: 90vh;
+        @include flex(center, center, column);
+        section {
+            @include flex(center, center, column);
+            height: 80vh;
+            padding: 0px 0px 0px 0px;
+        }
+
+        article {
+            @include flex(center, center, column);
+            margin: 0px 0px 0px 0px;
+            img {
+                width: 200px;
+            }
+        }
+
+        nav {
+            h5 {
+                text-align: center;
+                font-size: 2rem;
+                margin: 30px 0px 30px 0px;
+            }
+            ul {
+                li{
+                    text-align: center;
+                    margin: 15px 0px;
+                    a {
+                        font-size: 2rem;
+                    }
+                }
+            }
+            
+        }
+    }
+}
+
+@media (height: 1024px) and (min-width: 760px) and (max-width: 1024px){
+    header {
+        .nav-bar {
+            width: 80vw;
+            nav#nav {
+                .mobile-menu {
+                    border: none;
+                    display: flex;
+                    padding: .5rem 1rem;
+                    font-size: 1rem;
+                    background: none;
+                    cursor: pointer;
+                    gap: .5rem;
+
+                    .hamburger {
+                        border-top: 3px solid;
+                        width: 30px;
+                        display: block;
+                        color: #fff;
+
+                        &::after, &::before {
+                            content: '';
+                            transition: .6s;
+                            display: block;
+                            width: 30px;
+                            height: 3px;
+                            background: #fff; 
+                            margin-top: 5px;
+                            position: relative;
+                        }
+                    }
+                }
+
+                &.active .hamburger {
+                    border-top-color: transparent;
+
+                    &::before {
+                        transform: rotate(135deg);
+                    }
+
+                    &::after {
+                        transform: rotate(-135deg);
+                        top: -7px;
+                    }
+                }
+
+                .desktop-menu {
+                    @include flex(flex-start, center, column);
+                    border-radius: 5px;
+                    position: absolute;
+                    width: 100%;
+                    height: 0vh;
+                    top: 50px;
+                    right: 0px;
+                    background-color: #fff;
+                    transition: .6s;
+                    overflow-y: hidden;
+                    z-index: 1000;
+                    visibility: hidden;
+                    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.349);
+                    ul {
+                        @include flex(flex-start, center, column);
+                        width: 100%;
+                        height: 80%;
+
+                        li#product-nav {  
+                            padding: 15px 0px 0px 0px;
+                            @include flex(flex-start, center, column);
+                            margin: 5px 0px;
+                            div {
+                                @include flex(center, center, row);
+                                svg {
+                                    margin: 0px 0px 0px 5px;
+                                    path{
+                                        stroke: $colorLightRed;
+                                    }   
+                                } 
+            
+                                p {
+                                    font-family: $primaryFont;
+                                    margin: 05px 2px;
+                                    color: #314458;
+                                    font-weight: 600;
+                                    font-size: 1.2rem;
+                                }
+                            }
+                            
+                            .item {
+                                visibility: hidden;
+                                overflow-y: hidden;
+                                @include flex(center, center, column);
+                                border-radius: 5px;
+                                height: 0px;
+                                transition: .6s;
+                                width: 65vw;
+                                margin: 5px 0px 0px 0px;
+                                background-color: #EFEFF1;
+
+                                li {
+                                    font-weight: 700;
+                                    font-size: 1rem;
+                                    margin: 5px 0px;
+                                    color: #314458ef;
+                                }
+                            }
+
+                            &.active p {
+                                color: #314458c5;
+                            }
+
+                            &.active .item{
+                                visibility: visible;
+                                height: 180px;
+                            }
+                        }
+
+                        li#company-nav {
+                            @include flex(flex-start, center, column);
+                            margin: 5px 0px;
+                            div {
+                                @include flex(center, center, row);
+                                svg {
+                                    margin: 0px 0px 0px 5px;
+                                    path{
+                                        stroke: $colorLightRed;
+                                    }   
+                                } 
+            
+                                p {
+                                    font-family: $primaryFont;
+                                    margin: 05px 2px;
+                                    color: #314458;
+                                    font-weight: 600;
+                                    font-size: 1.2rem;
+                                }
+                            }
+
+                            .item {
+                                visibility: hidden;
+                                overflow-y: hidden;
+                                @include flex(center, center, column);
+                                border-radius: 5px;
+                                height: 0px;
+                                transition: .6s;
+                                width: 65vw;
+                                margin: 5px 0px 0px 0px;
+                                background-color: #EFEFF1;
+
+                                li {
+                                    font-weight: 700;
+                                    font-size: 1rem;
+                                    margin: 5px 0px;
+                                    color: #314458ef;
+                                }
+                            }
+
+                            &.active p {
+                                color: #314458c5;
+                            }
+
+                            &.active .item{
+                                visibility: visible;
+                                height: 150px;
+                            }
+                        } 
+
+                        li#connect-nav {
+                            @include flex(flex-start, center, column);
+                            margin: 5px 0px;
+                            div {
+                                @include flex(center, center, row);
+                                svg {
+                                    margin: 0px 0px 0px 5px;
+                                    path{
+                                        stroke: $colorLightRed;
+                                    }   
+                                } 
+            
+                                p {
+                                    font-family: $primaryFont;
+                                    margin: 5px 2px;
+                                    color: #314458;
+                                    font-weight: 600;
+                                    font-size: 1.2rem;
+                                }
+                            }
+
+                            .item {
+                                visibility: visible;
+                                overflow-y: hidden;
+                                @include flex(center, center, column);
+                                border-radius: 5px;
+                                height: 0px;
+                                transition: .6s;
+                                width: 65vw;
+                                margin: 5px 0px 10px 0px;
+                                background-color: #EFEFF1;
+
+                                li {
+                                    font-weight: 700;
+                                    font-size: 1rem;
+                                    margin: 7px 0px;
+                                    color: #314458ef;
+                                }
+                            }
+
+                            &.active p {
+                                color: #314458c5;
+                            }
+
+                            &.active .item{
+                                visibility: visible;
+                                height: 140px;
+                            }
+                        } 
+
+                    }
+
+                    .btns {
+                        border-top: 1px solid rgba(139, 139, 139, 0.219);
+                        width: 100%;
+                        height: 40%;
+                        position: relative;
+                        bottom: 10px;
+                        @include flex(center, center, column);
+                        .btn-login {
+                            font-size: 1.2rem;
+                            margin: 0px 0px 15px 0px;
+                            color: #314458;
+                            font-family: $primaryFont;
+                            font-weight: 600;
+                        }
+                        .btn-signup {
+                            color: #fff;
+                            font-size: 1.2rem;
+                            border-radius: 30px;
+                            width: 140px;
+                            height: 50px;
+                            background: linear-gradient(to right, #FF8C71 20%, #FF4F5B 80%);
+                        }
+                    }
+                }
+
+                &.active .desktop-menu{
+                    @include flex(flex-start, center, column);
+                    overflow-y: hidden;
+                    visibility: visible;
+                    height: 60vh;
+                }
+            }
+
+            img.logo {
+                width: 120px;
+                margin: 0px 360px 0px 0px;
+            }
+        } 
+    }
+
+    .container {
+        .bg {
+            .bg-img {          
+                img {
+                    width: 2500px;
+                    margin: -600px 0px 0px -300px;
+                }
+            }
+        }
+        .home-b {
+            padding: 0px 25px;
+
+            h1 {
+                font-size: 3rem;
+                font-weight: 400;
+            }
+
+            p {
+                font-size: 1.5rem;
+                font-weight: 300;
+            }
+
+            .btn {
+                .btn-start {
+                    font-size: 20px;
+                    padding: 25px 25px;
+                    border-radius: 50px;
+                }
+
+                .btn-learn {
+                    font-size: 20px;
+                    padding: 25px 35px;
+                    border-radius: 50px;
+                }
+            }
+        }
+    }
+
+    .about {
+        height: 160vh;
+        margin: 20px 0px 300px 0px;
+        h2 {
+            top: 60px;
+            font-size: 2.5rem;
+        }
+
+        .flex {
+            height: 120vh;
+            @include flex(center, center, column);
+            .txt {
+                @include flex(center, center, column);
+                width: 100vw;
+                order: 2;
+                margin: 0px 0px 0px 0px;
+                .box-1 {
+                    padding: 0px 100px 0px 100px;
+                    h3 {
+                        text-align: center;
+                        font-size: 2.5rem;
+                    }
+                    p {
+                        text-align: center;
+                        font-size: 1.4rem;
+                        line-height: 40px;
+                    }
+                }
+                .box-2 {
+                    padding: 0px 100px 0px 100px;
+                    h3 {
+                        text-align: center;
+                        font-size: 2.5rem;
+                    }
+                    p {
+                        text-align: center;
+                        font-size: 1.4rem;
+                        line-height: 40px;
+                    }
+                }      
+            }
+
+            .img {
+                margin: 70px 0px 200px 0px;
+                @include flex(flex-start, center, column);
+                width: 100vw;
+                height: 40%;
+                order: 1;
+                .desktop {
+                    display: none;
+                }
+                .mobile {
+                    display: block;
+                }
+                img {
+                    width: 800px;
+                    margin: 0px 0px 0px 0px;
+                }
+            }
+        }   
+    }
+
+    .sec3 {
+        height: 80vh;
+        @include flex(center, center, column);
+        .bg {
+            left: 0%;
+            border-radius: 50px;
+            bottom: 37%;
+            .bg-img {
+                bottom: 50px;
+                left: -350px;
+                img {
+                    width: 1500px;
+                }
+            }
+        }
+        .content {
+            @include flex(center, center, column)
+        }
+        .img {
+
+            margin: 50px 0px 0px 0px;
+            img {
+                width: 700px;
+            }
+        }
+        .txt {
+            width: 100%;
+            margin: 0px 0px 450px 0px;
+            padding: 0px 50px;
+            h2 {
+                text-align: center;
+                font-size: 2.5rem;
+                margin: 20px 0px 20px 0px;
+            }
+    
+            p {
+                text-align: center;
+                font-size: 1.5rem;
+                font-weight: 300;
+                line-height: 45px;
+            }
+        }
+    }
+
+    .sec4 {
+        width: 100vw;
+        height: 130vh;
+        margin: 0px 0px 100px 0px;
+        .content {
+            @include flex(center, center, column);
+            .txt {
+                width: 100%;
+                margin: 0px 0px 0px 0px;
+                padding: 0px 30px;
+                .box-1 {
+                    text-align: center;
+                    margin: 0px 0px;
+                    padding: 0px 0px 0px 0px;
+                    h3 {
+                        font-size: 2.5rem;
+                    }
+                    p {
+                        font-size: 1.5rem;
+                        line-height: 45px;
+                    }
+                }
+                .box-2 {
+                    text-align: center;
+                    margin: 100px 0px 50px 0px;
+                    padding: 0px 0px 0px 0px;
+                    h3 {
+                        font-size: 2.5rem;
+                    }
+                    p {
+                        font-size: 1.5rem;
+                        line-height: 45px;
+                    }
+                }      
+            }
+        }
+        .img {
+            width: 100vw;
+            height: 100%;
+            @include flex(center, center, column);
+            .desktop {
+                display: none;
+            }
+            .mobile {
+                display: block;
+                width: 800px;
+                margin: 0px 0px 0px 0px;
+            }
+        }
+    }
+
+    footer {
+        height: 90vh;
+        @include flex(center, center, column);
+        section {
+            @include flex(center, center, column);
+            height: 80vh;
+            padding: 0px 0px 0px 0px;
+        }
+
+        article {
+            @include flex(center, center, column);
+            margin: 0px 0px 0px 0px;
+            img {
+                width: 120px;
+            }
+        }
+
+        nav {
+            h5 {
+                text-align: center;
+                font-size: 1.5rem;
+                margin: 30px 0px 30px 0px;
+            }
+            ul {
+                li{
+                    text-align: center;
+                    margin: 15px 0px;
+                    a {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+            
+        }
+    }
+}

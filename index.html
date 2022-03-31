@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Blogr</title>
+        <link rel="shortcut icon" href="img/favicon-32x32.png" type="img/favicon-icon">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header>     
+            <section class="nav-bar">
+                <article>
+                    <img src="img/logo.svg" alt="logo" class="logo">
+                    <nav id="nav">
+                        <nav onclick="toggleMenu()">
+                            <button class="mobile-menu">
+                                <span class="hamburger"></span>
+                            </button>
+                        </nav>
+                        <nav class="desktop-menu">
+                            <ul>
+                                <li id="product-nav">
+                                    <div>
+                                        <p onclick="toggleProduct()">Product</p>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="7"><path fill="none" stroke="#FFF" stroke-width="2" opacity=".75" d="M1 1l4 4 4-4"/></svg>
+                                    </div>
+                                    <ul class="item">
+                                        <li>Overview</li>
+                                        <li>Pricing</li>
+                                        <li>Marketplace</li>
+                                        <li>Features</li>
+                                        <li>Integrations</li>
+                                    </ul>
+                                </li>
+                                <li id="company-nav">
+                                    <div>
+                                        <p onclick="toggleCompany()">Company</p>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="7"><path fill="none" stroke="#FFF" stroke-width="2" opacity=".75" d="M1 1l4 4 4-4"/></svg>
+                                    </div>
+                                    <ul class="item">
+                                        <li>About</li>
+                                        <li>Team</li>
+                                        <li>Blog</li>
+                                        <li>Careers</li>
+                                    </ul>
+                                </li>
+                                <li id="connect-nav">
+                                    <div>
+                                        <p onclick="toggleConnect()">Connect</p>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="7"><path fill="none" stroke="#FFF" stroke-width="2" opacity=".75" d="M1 1l4 4 4-4"/></svg>
+                                    </div>
+                                    <ul class="item">
+                                        <li>Contact</li>
+                                        <li>Newsletter</li>
+                                        <li>Linkedin</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <article class="btns">
+                                <button class="btn-login">Login</button>
+                                <button class="btn-signup">Sign Up</button>
+                            </article>
+                        </nav>
+                    </nav>
+                </article>
+            </section>
+        </header>
+        <main class="container">
+            <section class="bg">
+                <div class="bg-img">
+                    <img class="desktop" src="img/bg-pattern-intro-desktop.svg">
+                </div>
+            </section>
+
+            <section class="home-b">
+                    <h1>A modern publishing plataform</h1>
+                    <p>Grow you audience and build your online brand</p>
+
+                <article class="btn">
+                    <button class="btn-start">
+                        Start for Free
+                    </button>
+                    <button class="btn-learn">
+                        Learn More
+                    </button>
+                </article>
+            </section>
+           
+        </main>
+
+        <main class="about">
+            <h2>Designed for the future</h3>
+            <div class="flex">
+                <section class="txt">
+                    <article class="box-1">
+                        <h3>Introducing an extensible editor</h3>
+                        <p>Blogr features an exceedingly intuitive interface which lets you focus on one thing: creating content.
+                        The editor supports management of multiple blogs and allows easy manipulation of embeds such as images, 
+                        videos and Markdown. Extensibility with plugns and themes provide easy ways to add functionality or change 
+                        the looks of a blog.
+                        </p>
+                    </article>
+
+                    <article class="box-2">
+                        <h3>Robust content management</h3>
+                        <p>Flexible content management enables user to easily move through posts. Increase the usability of your blog by adding
+                        costumized categories, sections, format, or flow. With this functionality, you're in full controll.
+                        </p>
+                    </article>
+                </section>
+                <aside class="img">
+                    <img class="desktop" src="img/illustration-editor-desktop.svg" alt="">
+                    <img class="mobile" src="img/illustration-editor-mobile.svg" alt="">
+
+                </aside>
+            </div>
+        </main>
+
+        <main class="sec3">
+            <section class="bg">
+                <article class="bg-img">
+                    <img src="img/bg-pattern-circles.svg" alt="">
+                </article>
+            </section>
+            <section class="content">
+                <aside class="img">
+                    <img src="img/illustration-phones.svg" alt="">
+                </aside>
+                <section class="txt">
+                    <h2>State of the Art Infrastructure</h2>
+                    <p>With realiability and speed in mind, worldwide data centers provide the backbone for ultra-fast connectivity.
+                    This ensures your site will load instantly, no matter where your readers are, keeping your site competitive.
+                    </p>
+                </section>
+            </section>
+        </main>
+
+        <main class="sec4">
+            <section class="content">
+                <aside class="img">
+                    <img class="desktop" src="img/illustration-laptop-desktop.svg" alt="">
+                    <img class="mobile" src="img/illustration-laptop-mobile.svg" alt="">
+                </aside>
+                <section class="txt">
+                    <article class="box-1">
+                        <h3>Free, open, simple</h3>
+                        <p>Blogr is a free and open source application backed by a large community of helpful developers. It supports features
+                        such as code syntax highlighting, RSS feeds, social media integration, third-party commenting tools, and works seamlessy,
+                        with Google Analytics, The architecture is clean and is relatively easy to learn.
+                        </p>
+                    </article>
+                    <article class="box-2">
+                        <h3>Powerful tooling</h3>
+                        <p>Batteries included. We built a simple and straightforward CLI tool that makes costumization and deployment a breeze,
+                        but capable of producing even the most complicated sites.
+                        </p>
+                    </article>
+                </section>
+            </section>
+        </main>
+
+        <footer>
+            <section>
+                <article>
+                    <img src="img/logo.svg" alt="logo-icon">
+                </article>
+                <nav>
+                    <h5>Product</h5>
+                    <ul>
+                        <li>
+                            <a href="">Overview</a>
+                        </li>
+                        <li>
+                            <a href="">Princing</a>
+                        </li>
+                        <li>
+                            <a href="">Marketplace</a>
+                        </li>
+                        <li>
+                            <a href="">Features</a>
+                        </li>
+                        <li>
+                            <a href="">Integrations</a>
+                        </li>
+                    </ul>
+                </nav>
+                <nav>
+                    <h5>Company</h5>
+                    <ul>
+                        <li>
+                            <a href="">About</a>
+                        </li>
+                        <li>
+                            <a href="">Team</a>
+                        </li>
+                        <li>
+                            <a href="">Blog</a>
+                        </li>
+                        <li>
+                            <a href="">Careers</a>
+                        </li>
+                    </ul>
+                </nav>
+                <nav>
+                    <h5>Connect</h5>
+                    <ul>
+                        <li>
+                            <a href="">Contact</a>
+                        </li>
+                        <li>
+                            <a href="">Newsletter</a>
+                        </li>
+                        <li>
+                            <a href="">Linkedin</a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+        </footer>
+        <script src="js/app.js"></script>
+    </body>
+</html>
